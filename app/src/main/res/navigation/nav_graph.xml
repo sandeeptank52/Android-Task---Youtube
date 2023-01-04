@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.androidtask.youtubeapp.ui.splash.FragmentSplash"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreen_to_fragmentHomeScreen"
+            app:destination="@id/fragmentHomeScreen"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHomeScreen"
+        android:name="com.androidtask.youtubeapp.ui.home.FragmentHomeScreen"
+        android:label="FragmentHomeScreen"
+        tools:layout="@layout/fragment_home_screen">
+
+        <action
+            android:id="@+id/action_home_to_fragmentVideo"
+            app:destination="@id/fragmentVideo" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentVideo"
+        android:name="com.androidtask.youtubeapp.ui.video.FragmentVideo"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video">
+        <argument
+            android:name="videoData"
+            app:argType="com.androidtask.youtubeapp.data.models.YoutubeVideos"
+            app:nullable="true" />
+
+    </fragment>
+</navigation>
